@@ -1,5 +1,9 @@
 .main {
   text-align: center;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
 }
 
 .main h2 {
