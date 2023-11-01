@@ -6,7 +6,7 @@ const Home = () => {
 
   return (
 
-    <main className={styles.main}>
+    <main className={styles.mainx}>
         
       <h1>זה עובד</h1>
 

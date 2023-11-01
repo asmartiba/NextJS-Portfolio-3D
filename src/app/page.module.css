@@ -1,11 +1,35 @@
-.main {
-  text-align: center;
-  background-color: black;
-  color: white;
-  display: flex;
-  flex-direction: column;
+@import url('https://fonts.googleapis.com/css2?family=Handjet&display=swap');
+
+@font-face {
+  src: url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@300&display=swap');
+  font-family: 'Handjet', cursive;
 }
 
-.main h2 {
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.mainx {
+  background: linear-gradient(to bottom right, #0f3436, #20061a);
+  color: white;
+  background-size: 150%;
+  animation: gradient-animation 16s ease infinite;
+  min-height: 100vh;
+  height: auto;
+  width: auto;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  text-align: center;
+}
+
+.mainx h2 {
   color: coral;
 }
