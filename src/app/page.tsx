@@ -13,7 +13,7 @@ const Home = () => {
       <h2>אנחנו כאן הם שם</h2>
       <h1>זה קשה. אבל אני חושב שאני מוכן להמבכן הזה</h1>
 
-      <div style={{width: 200, height:120, backgroundColor: 'coral'}}>
+      <div style={{width: 200, height:120, backgroundColor: 'darkred', display: 'flex', justifyContent: 'center'}}>
           כן
       </div>
 
