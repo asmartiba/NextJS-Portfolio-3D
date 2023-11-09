@@ -1,8 +1,18 @@
 import Image from 'next/image'
 import styles from './page.module.css'
 import './global.css';
+import Aleph from './../components/aleph';
+import { useEffect } from 'react';
+
 
 const Home = () => {
+
+    // useEffect(() => {
+    //   if (typeof window !== "undefined") {
+    //       console.log('השמש ידות')
+    //   }
+    // }, []);
+
 
   return (
 
@@ -16,6 +26,8 @@ const Home = () => {
       <div style={{width: 200, height:120, backgroundColor: 'darkred', display: 'flex', justifyContent: 'center'}}>
           כן
       </div>
+
+      {/* <Aleph/> */}
 
     </main>
   )

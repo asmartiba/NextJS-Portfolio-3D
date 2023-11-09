@@ -1,16 +1,16 @@
 import React, {useRef, useState, useEffect} from "react"
 import {Canvas} from '@react-three/fiber'
 import * as THREE from "three";
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { GLTF, GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
-// import video01 from "../images/webm/api.webm"
 import Image from 'next/image';
 import styles from "./aleph.module.css"
+import useClient from "next/client";
 
 const Aleph = () => {
-    const [model, setModel] = useState(null);
+    const [model, setModel] = useState<GLTF | null>(null);
     const [isMobile, setIsMobile] = useState(false);
-    const modelRef = useRef();
+    const modelRef = useRef<THREE.Mesh | null>(null);
     const clock = useRef(new THREE.Clock());
     const initialPosition = [-1, 0, -0.5];
     const [rotationY, setRotationY] = useState(0);
@@ -57,7 +57,7 @@ const Aleph = () => {
         const dracoLoader = new DRACOLoader();
         dracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/');
         loader.setDRACOLoader(dracoLoader);
-        loader.load('/models/react.glb', (glb) => {
+        loader.load('./models/react.glb', (glb) => {
           setModel(glb);
         });
       }, []);
@@ -69,13 +69,7 @@ const Aleph = () => {
           setRotationY((prevRotationY) => prevRotationY + rotationSpeed * delta);
           requestAnimationFrame(animate);
         };
-  
-        document.addEventListener('DOMContentLoaded', function () {
-          const video = document.querySelector('.imageS');
-          video.play();
-          setHasVideoPlayed(true); 
-        });
-      
+
         if (model) {
           requestAnimationFrame(animate);
         }
@@ -86,9 +80,9 @@ const Aleph = () => {
           <>
               <div className={styles.cGroup}>
                 <div className={styles.container3D} >
-                  <Canvas camera={getCameraProps()}>
+                  <Canvas>
                     <pointLight position={[10, 10, 10]} />
-                    <mesh ref={modelRef} position={initialPosition} rotation-y={rotationY}>
+                    <mesh ref={modelRef} position={new THREE.Vector3(...initialPosition)} rotation-y={rotationY}>
                       {model && <primitive object={model.scene} scale={1.3} />}
                     </mesh>
                   </Canvas>
@@ -113,7 +107,7 @@ const Aleph = () => {
                               In this subject I learnt working with advanced JavaScript and connecting front and back-end via API by writing GraphQL queries. 
                           </h3>
                       </div>
-                      <StaticImage 
+                      <Image 
                           src="../images/title/wpgatsby.png"
                           alt="icons"
                           className={styles.imageS}
@@ -122,7 +116,7 @@ const Aleph = () => {
   
                 <div className={styles.cGroup}>
   
-                    <StaticImage 
+                    <Image 
                           src="../images/title/Responsive.png"
                           alt="icon"
                           className={styles.imageM}
@@ -148,7 +142,7 @@ const Aleph = () => {
                           </h3>
                       </div>
                       <video autoPlay loop className={styles.imageS}>
-                        <source src={video01} type="video/webm" />
+                        <source src="./../images/webm/api.webm" type="video/webm" />
                       </video>
                   </div>
   
