@@ -1,3 +1,4 @@
+'use client'
 import React, {useRef, useState, useEffect} from "react"
 import {Canvas} from '@react-three/fiber'
 import * as THREE from "three";
@@ -16,6 +17,7 @@ const Aleph = () => {
     const [rotationY, setRotationY] = useState(0);
     const [hasVideoPlayed, setHasVideoPlayed] = useState(false);
       
+    
       useEffect(() => {
         const checkIsMobile = () => {
           const breakpoint = 768; 
@@ -107,20 +109,20 @@ const Aleph = () => {
                               In this subject I learnt working with advanced JavaScript and connecting front and back-end via API by writing GraphQL queries. 
                           </h3>
                       </div>
-                      <Image 
+                      {/* <Image 
                           src="../images/title/wpgatsby.png"
                           alt="icons"
                           className={styles.imageS}
-                      />
+                      /> */}
                 </div>
   
                 <div className={styles.cGroup}>
   
-                    <Image 
+                    {/* <Image 
                           src="../images/title/Responsive.png"
                           alt="icon"
                           className={styles.imageM}
-                      />
+                      /> */}
                     <div className={styles.containerText}>
                       <h2><span style={{color: '#11b3aa'}}>Responsive</span></h2>
                       <h3> 

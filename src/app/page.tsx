@@ -1,8 +1,9 @@
+'use client'
 import Image from 'next/image'
 import styles from './page.module.css'
 import './global.css';
 import Aleph from './../components/aleph';
-import { useEffect } from 'react';
+import React, {useRef, useState, useEffect} from "react"
 
 
 const Home = () => {
@@ -27,7 +28,7 @@ const Home = () => {
           כן
       </div>
 
-      {/* <Aleph/> */}
+      <Aleph/>
 
     </main>
   )
