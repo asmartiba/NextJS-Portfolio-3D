@@ -109,11 +109,13 @@ const Aleph = () => {
                               In this subject I learnt working with advanced JavaScript and connecting front and back-end via API by writing GraphQL queries. 
                           </h3>
                       </div>
-                      {/* <Image 
-                          src="../images/title/wpgatsby.png"
+                      <img src="./../images/title/wpgatsby.png" alt="icons" width={200} height={200} />
+                      <Image 
+                          src="/images/title/wpgatsby.png"
                           alt="icons"
-                          className={styles.imageS}
-                      /> */}
+                          width={200}
+                          height={200}
+                      />
                 </div>
   
                 <div className={styles.cGroup}>
