@@ -8,13 +8,6 @@ import React, {useRef, useState, useEffect} from "react"
 
 const Home = () => {
 
-    // useEffect(() => {
-    //   if (typeof window !== "undefined") {
-    //       console.log('השמש ידות')
-    //   }
-    // }, []);
-
-
   return (
 
     <main className={styles.mainx}>

@@ -8,6 +8,7 @@ import Image from 'next/image';
 import styles from "./aleph.module.css"
 import useClient from "next/client";
 
+
 const Aleph = () => {
     const [model, setModel] = useState<GLTF | null>(null);
     const [isMobile, setIsMobile] = useState(false);
@@ -59,14 +60,14 @@ const Aleph = () => {
         const dracoLoader = new DRACOLoader();
         dracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/');
         loader.setDRACOLoader(dracoLoader);
-        loader.load('./models/react.glb', (glb) => {
+        loader.load('./../models/react.glb', (glb) => {
           setModel(glb);
         });
       }, []);
   
       useEffect(() => {
         const animate = () => {
-          const delta = clock.current.getDelta();
+          const delta = clock.current.getDelta(); 
           const rotationSpeed = 0.2;
           setRotationY((prevRotationY) => prevRotationY + rotationSpeed * delta);
           requestAnimationFrame(animate);
@@ -85,9 +86,11 @@ const Aleph = () => {
                   <Canvas>
                     <pointLight position={[10, 10, 10]} />
                     <mesh ref={modelRef} position={new THREE.Vector3(...initialPosition)} rotation-y={rotationY}>
-                      {model && <primitive object={model.scene} scale={1.3} />}
+                      {model && <primitive object={model.scene} scale={1} />}
                     </mesh>
                   </Canvas>
+                  <h2>Container is here</h2>
+
                 </div>
   
                 <div className={styles.containerText}>
@@ -109,13 +112,13 @@ const Aleph = () => {
                               In this subject I learnt working with advanced JavaScript and connecting front and back-end via API by writing GraphQL queries. 
                           </h3>
                       </div>
-                      <img src="./../images/title/wpgatsby.png" alt="icons" width={200} height={200} />
+                      {/* <img src="./../images/title/wpgatsby.png" alt="icons" width={200} height={200} />
                       <Image 
                           src="/images/title/wpgatsby.png"
                           alt="icons"
                           width={200}
                           height={200}
-                      />
+                      /> */}
                 </div>
   
                 <div className={styles.cGroup}>
