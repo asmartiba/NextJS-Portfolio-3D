@@ -9,8 +9,6 @@ import Image from 'next/image';
 import styles from "./aleph.module.css"
 import useClient from "next/client";
 
-
-
 const Aleph = () => {
     const [model, setModel] = useState<GLTF | null>(null);
     const [isMobile, setIsMobile] = useState(false);
