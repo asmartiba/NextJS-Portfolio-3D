@@ -62,10 +62,13 @@ const Aleph = () => {
         const dracoLoader = new DRACOLoader();
         dracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/');
         loader.setDRACOLoader(dracoLoader);
-        loader.load('./../models/react.glb', (glb) => {
+
+        // Load the GLB file from the public directory
+        loader.load('/models/react.glb', (glb) => {
           setModel(glb);
         });
       }, []);
+
   
       useEffect(() => {
         const animate = () => {
