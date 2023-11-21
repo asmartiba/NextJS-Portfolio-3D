@@ -4,9 +4,11 @@ import {Canvas} from '@react-three/fiber'
 import * as THREE from "three";
 import { GLTF, GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
+import { OrbitControls } from "@react-three/drei";
 import Image from 'next/image';
 import styles from "./aleph.module.css"
 import useClient from "next/client";
+
 
 
 const Aleph = () => {
@@ -17,7 +19,7 @@ const Aleph = () => {
     const initialPosition = [-1, 0, -0.5];
     const [rotationY, setRotationY] = useState(0);
     const [hasVideoPlayed, setHasVideoPlayed] = useState(false);
-      
+    const [controlsTarget, setControlsTarget] = useState(new THREE.Vector3(...initialPosition));
     
       useEffect(() => {
         const checkIsMobile = () => {
@@ -85,9 +87,11 @@ const Aleph = () => {
                 <div className={styles.container3D} >
                   <Canvas>
                     <pointLight position={[10, 10, 10]} />
+                    <ambientLight />
                     <mesh ref={modelRef} position={new THREE.Vector3(...initialPosition)} rotation-y={rotationY}>
                       {model && <primitive object={model.scene} scale={1} />}
                     </mesh>
+                    <OrbitControls target={controlsTarget} enableDamping dampingFactor={0.25} rotateSpeed={0.5} enableZoom={false}/>
                   </Canvas>
                   <h2>Container is here</h2>
 
