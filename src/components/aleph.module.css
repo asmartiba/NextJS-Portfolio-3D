@@ -1,14 +1,14 @@
-.imageS {
-    width:200px;
-}
-.imageM {
-    width:200px;
-}
-.imageL {
-    width:200px;
-}
-
 .container3D {
     height: 60vh;
-    width:100%;
+}
+
+.containerText {
+    width: 50%;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100% ;
 }

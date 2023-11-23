@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Handjet&display=swap');
+
+@font-face {
+  src: url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@300&display=swap');
+  font-family: 'Handjet', cursive;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Handjet','Courier New', Courier, monospace,  cursive;
+}
