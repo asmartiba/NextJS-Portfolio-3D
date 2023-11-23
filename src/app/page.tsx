@@ -5,9 +5,42 @@ import './global.css';
 import Aleph from './../components/aleph';
 import React, {useRef, useState, useEffect} from "react"
 
+const ToggleColorDiv = () => {
+  const [isGrey, setIsGrey] = useState(true);
+
+  const handleClick = () => {
+    setIsGrey((prevIsGrey) => !prevIsGrey);
+  };
+
+  const backgroundColor = isGrey ? 'grey' : 'blue';
+  const textColor = isGrey ? 'blue' : 'white';
+
+  return (
+    <div
+      style={{
+        width: 200,
+        height: 120,
+        backgroundColor: backgroundColor,
+        color: textColor,
+        fontSize: 28,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        cursor: 'pointer',
+      }}
+      onClick={handleClick}
+    >
+      כן
+    </div>
+  );
+};
+
 
 const Home = () => {
 
+
+
+  
   return (
 
     <main className={styles.mainx}>
@@ -17,9 +50,8 @@ const Home = () => {
       <h2>אנחנו כאן הם שם</h2>
       <h1>זה קשה. אבל אני חושב שאני מוכן להמבכן הזה</h1>
 
-      <div style={{width: 200, height:120, backgroundColor: 'darkred', display: 'flex', justifyContent: 'center'}}>
-          כן
-      </div>
+      <ToggleColorDiv/>
+
 
       <Aleph/>
 
