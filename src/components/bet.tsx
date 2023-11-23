@@ -1,19 +1,16 @@
-import React, {useRef, useState, useEffect} from "react"
-import * as styles from "../styles/ICT.module.css"
+import React, { useRef, useState, useEffect, RefObject } from "react";
 import Image from 'next/image'
 import {Canvas, useThree} from '@react-three/fiber'
-
 import * as THREE from 'three';
 import { GLTF, GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
-
+import styles from './aleph.module.css'
 
  const Bet = () => {
-    const initialPosition = [-0.2,0.2,0];
-    const [model, setModel] = useState<GLTF | null>(null);
-    const [isMobile, setIsMobile] = useState(false);
-    const CSharpMixer = useRef<THREE.Mesh | null>(null);
-    const previousTimeRef = useRef(0);
+  const modelRef = useRef<THREE.Mesh | null>(null);
+  const initialPosition = [-0.2, 0.2, 0];
+  const [model, setModel] = useState<THREE.Object3D | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
   
     useEffect(() => {
       const checkIsMobile = () => {
@@ -50,50 +47,35 @@ import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
         };
       }
     };
-  
+
     useEffect(() => {
       const loader = new GLTFLoader();
-      const dracoLoader = new DRACOLoader();
-      dracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/');
-      loader.setDRACOLoader(dracoLoader);
-      loader.load('/models/csharp.glb', (glb) => {
-        setModel(glb);
-        if (glb.animations.length > 0) {
-          CSharpMixer.current = new THREE.AnimationMixer(glb.scene);
-          const action = CSharpMixer.current.clipAction(glb.animations[0]);
-          action.play();
+  
+      loader.load(
+        "/models/csharp.glb",
+        (gltf) => {
+          setModel(gltf.scene);
+        },
+        undefined,
+        (error) => {
+          console.error("Error loading GLB model", error);
         }
-      });
+      );
     }, []);
-
-    const animate = (timestamp) => {
-      const deltaTime = (timestamp - previousTimeRef.current) * 0.0004;
-      previousTimeRef.current = timestamp;
-
-      if (CSharpMixer.current) {
-        CSharpMixer.current.update(deltaTime);
-      }
-      requestAnimationFrame(animate);
-    };
-    
-    useEffect(() => {
-      if (model) {
-        requestAnimationFrame(animate);
-      }
-    }, [model]);
   
     return (
         <>
-            <div>
-              <div >
-                <Canvas camera={getCameraProps()}>
-                    <pointLight position={[5, 5, 2]} />
-                    <mesh position={initialPosition}>
-                      {model && <primitive object={model.scene} scale={0.8} />}
-                    </mesh>
+            <div className={styles.flex}>
+              <div className={styles.container3D}>
+                <Canvas>
+                  <pointLight position={[5, 5, 2]} />
+                  <ambientLight />
+                  <mesh ref={modelRef} position={new THREE.Vector3(...initialPosition)}>
+                    {model && <primitive object={model} scale={1.1} />}
+                  </mesh>
                 </Canvas>
               </div>
-              <div>
+              <div className={styles.containerText}>
                 <h2><span style={{fontSize:'130%'}}>W</span>eb services</h2>
                 <h3> 
                   In these subjects I was able to implement what I have learnt earlier about object-oriented programming.
@@ -102,11 +84,9 @@ import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
                 </h3>
               </div>
             </div>
-            <div>
-              {/* <video autoPlay loop >
-                    <source src={video01} type="video/webm" />
-              </video> */}
-              <div >
+
+            <div className={styles.flex}>
+              <div className={styles.containerText}>
                 <h2><span style={{fontSize:'120%'}}>S</span>oftware Testing</h2>
                 <h3> 
                   Beginning here with debugging, going through code without re-factoring. 
@@ -116,13 +96,20 @@ import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
                   <br/> .  <span style={{color:"#e0a286"}}>Moq and Mockoon (To test independently from the API call)</span>
                 </h3>
               </div>
+              <video autoPlay loop className={styles.imageS} >
+                    <source src="/images/webm/tdd.webm" type="video/webm" />
+              </video>
             </div>
-            <div >
-            {/* <StaticImage 
-                        src="../images/title/SQL.png"
-                        alt="icon"
-                    /> */}
-              <div >
+
+            <div className={styles.flex}>
+                <Image 
+                    src="/images/title/SQL.png"
+                    alt="icon"
+                    width={300}
+                    height={200}
+                    className={styles.imageS}
+                  />
+              <div className={styles.containerText}>
                 <h2><span style={{fontSize:'120%'}}>D</span>atabank, SQL & NoSQL</h2>
                 <h3> 
                   In subjects such as databank I learnt how to establish connection with an external database and write queries using my workbench SQL

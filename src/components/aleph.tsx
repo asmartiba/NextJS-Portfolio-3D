@@ -89,23 +89,68 @@ const Aleph = () => {
                     I like to work using <span style={{color: "#f7df1e"}}>Javascript</span>, <span style={{color: "#f16524"}}>HTML</span>,  <span style={{color: "#2862e9"}}>CSS</span> and  <span style={{color: "#c66394"}}>SASS</span> using <span style={{color: "#61dbfb"}}>React framework.</span>
                     Libraries that I enjoyed studying and using during the years I studied programming <span style={{color: "#61dbfb"}}>React Drei</span> and <span style={{color: "#61dbfb"}}>React Fiber</span>. 
                   </h3>
-
                   <h3>Recently I have been using <span style={{color: "#c4002b"}}>Angular</span>, <span style={{color: "#9d5efe"}}>Vite</span> and <span style={{color: "#5fcec9"}}>NextJS</span>, thus I'm becoming more familiar with <span style={{color: "#51dbfb"}}>Typescript</span> as a main programming language for advanced queries.</h3>
                 </div>
-
                 <div className={styles.container3D} >
                   <Canvas>
-                    <pointLight position={[0, 1, 1]} intensity={1} color='orange'/>
-                    <ambientLight intensity={0.15}/> 
+                    <pointLight position={[0, 1, 1]} intensity={0.6} color='orange'/>
+                    <pointLight position={[1, 0, 1]} intensity={1} color='white'/>
+                    <ambientLight intensity={0.2}/> 
                       <mesh ref={modelRef} position={new THREE.Vector3(...initialPosition)} rotation-y={rotationY}>
-                        {model && <primitive object={model.scene} scale={1} />}
+                        {model && <primitive object={model.scene} scale={1.1} />}
                       </mesh>
                     <OrbitControls target={controlsTarget} enableDamping dampingFactor={0.25} rotateSpeed={0.5} enableZoom={false}/>
                   </Canvas>
                 </div>
+              </div>
 
+              <div className={styles.flex}>
+                    <Image 
+                        src="/images/title/NextJS.png"
+                        alt="icons"
+                        width={300}
+                        height={200}
+                        className={styles.imageS}
+                    />
+                    <div className={styles.containerText}>
+                        <h2><span style={{color: '#0173aa'}}>WordPress</span>, <span style={{color: '#11b3aa'}}>Netilify </span> & <span style={{color: '#adf0eb'}}>NextJS</span></h2>
+                        <h3> 
+                            in content management system CMS development. I learnt about using WordPress as a headless CMS. Hosting it as a static site via Gatsby and Netilify. Currently I'm rewriting my site using NextJS and that would replace GatsbyJS. 
+                            In this subject I learnt working with advanced JavaScript and connecting front and back-end via API by writing GraphQL queries. 
+                        </h3>
+                    </div>
               </div>
                 
+              <div className={styles.flex}>
+                  <div className={styles.containerText}>
+                    <h2><span style={{color: '#11b3aa'}}>Responsive</span></h2>
+                    <h3> 
+                        Designing a functional website compatible with different screen sizes and resolutions can be challenging. 
+                        My current approach for implementing wireframes would be writing media queries   
+                    </h3>
+                  </div>
+                  <Image 
+                        src="/images/title/Responsive.png"
+                        alt="icon"
+                        width={300}
+                        height={200}
+                        className={styles.imageS}
+                    />
+              </div>
+
+              <div className={styles.flex}>
+                    <video autoPlay loop className={styles.imageS}>
+                      <source src="/images/webm/api.webm" type="video/webm" />
+                    </video>
+                    <div className={styles.containerText}>
+                        <h2><span style={{color: '#0173aa'}}>API development </span></h2>
+                        <h3> 
+                            Building a robust and efficient API to connect and interact with data sources, enabling communication between front-end and back-end of a web application.
+                            In <span style={{color: "#be73d8"}}>ASP.NET</span>, <span style={{color: "#f7df1e"}}>JSON</span> serialization plays a role in making data accesible via web applications. 
+                            Through the magic of serialization, ASP.NET APIs convert .NET objects into JSON format, making data exchange between the front and back-end seamless and efficient.
+                        </h3>
+                    </div>
+                </div>
           </>
     )};
   
