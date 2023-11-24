@@ -48,20 +48,20 @@ import styles from './aleph.module.css'
       }
     };
 
-    useEffect(() => {
-      const loader = new GLTFLoader();
+    // useEffect(() => {
+    //   const loader = new GLTFLoader();
   
-      loader.load(
-        "/models/csharp.glb",
-        (gltf) => {
-          setModel(gltf.scene);
-        },
-        undefined,
-        (error) => {
-          console.error("Error loading GLB model", error);
-        }
-      );
-    }, []);
+    //   loader.load(
+    //     "/models/csharp.glb",
+    //     (gltf) => {
+    //       setModel(gltf.scene);
+    //     },
+    //     undefined,
+    //     (error) => {
+    //       console.error("Error loading GLB model", error);
+    //     }
+    //   );
+    // }, []);
   
     return (
         <>
