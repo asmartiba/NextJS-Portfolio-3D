@@ -43,13 +43,15 @@ const Home = () => {
 
     <main className={styles.mainx}>
         
-      {/* <h1>זה עובד</h1>
+      <h1>זה עובד</h1>
 
       <h2>אנחנו כאן הם שם</h2>
       <h1>זה קשה. אבל אני חושב שאני מוכן להמבכן הזה</h1>
 
-      <ToggleColorDiv/> */}
+      <h2>יש לי מבחן ואני מוכן</h2>
 
+      <ToggleColorDiv/>
+      
 
       <Aleph/>
       <Bet/>

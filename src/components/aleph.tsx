@@ -93,7 +93,7 @@ const Aleph = () => {
                 </div>
                 <div className={styles.container3D} >
                   <Canvas>
-                    <pointLight position={[0, 1, 1]} intensity={0.6} color='orange'/>
+                    <pointLight position={[0, 1, 1]} intensity={0.2} color='orange'/>
                     <pointLight position={[1, 0, 1]} intensity={1} color='white'/>
                     <ambientLight intensity={0.2}/> 
                       <mesh ref={modelRef} position={new THREE.Vector3(...initialPosition)} rotation-y={rotationY}>
