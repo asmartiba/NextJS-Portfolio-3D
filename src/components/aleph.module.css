@@ -3,14 +3,12 @@
 }
 
 .containerText {
-    width: 50%;
     font-size: 22px;
 }
 
 .flex {
     display: flex;
     align-items: center;
-    width: 60%;
     justify-content: space-between;
 }
 

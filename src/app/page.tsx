@@ -6,57 +6,71 @@ import Aleph from './../components/aleph'
 import Bet from './../components/bet'
 import React, {useRef, useState, useEffect} from "react"
 
-const ToggleColorDiv = () => {
-  const [isGrey, setIsGrey] = useState(true);
+  const ToggleColorDiv = () => {
+    const [isGrey, setIsGrey] = useState(true);
 
-  const handleClick = () => {
-    setIsGrey((prevIsGrey) => !prevIsGrey);
+    const handleClick = () => {
+      setIsGrey((prevIsGrey) => !prevIsGrey);
+    };
+
+    const backgroundColor = isGrey ? 'grey' : 'blue';
+    const textColor = isGrey ? 'blue' : 'white';
+
+    return (
+      <div
+        style={{
+          width: 200,
+          height: 120,
+          backgroundColor: backgroundColor,
+          color: textColor,
+          fontSize: 28,
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          cursor: 'pointer',
+        }}
+        onClick={handleClick}
+      >
+        כן
+      </div>
+    );
   };
 
-  const backgroundColor = isGrey ? 'grey' : 'blue';
-  const textColor = isGrey ? 'blue' : 'white';
-
-  return (
-    <div
-      style={{
-        width: 200,
-        height: 120,
-        backgroundColor: backgroundColor,
-        color: textColor,
-        fontSize: 28,
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        cursor: 'pointer',
-      }}
-      onClick={handleClick}
-    >
-      כן
-    </div>
-  );
-};
-
-
-const Home = () => {
   
-  return (
+  const Home = () => {
+    const [selectedComponent, setSelectedComponent] = useState('Aleph');
 
-    <main className={styles.mainx}>
-        
-      <h1>זה עובד</h1>
+    const handleComponentChange = (selectedComponent: string) => {
+      setSelectedComponent(selectedComponent);
+    };
 
-      <h2>אנחנו כאן הם שם</h2>
-      <h1>זה קשה. אבל אני חושב שאני מוכן להמבכן הזה</h1>
-
-      <h2>יש לי מבחן ואני מוכן</h2>
-
-      <ToggleColorDiv/>
-      
-
-      <Aleph/>
-      <Bet/>
-    </main>
-  )
-}
+    return (
+      <>
+        <main className={styles.mainx}>
+          <div className={styles.container}>
+            <div className={styles.screen}>
+              {selectedComponent === 'Aleph' && <Aleph />}
+              {selectedComponent === 'Bet' && <Bet />}
+            </div>
+            
+            <div className={styles.navigation}>
+                <div
+                  className={selectedComponent === 'Aleph' ? styles.selected : ''}
+                  onClick={() => handleComponentChange('Aleph')}
+                >
+                  Aleph
+                </div>
+                <div
+                  className={selectedComponent === 'Bet' ? styles.selected : ''}
+                  onClick={() => handleComponentChange('Bet')}
+                >
+                  Bet
+                </div>
+            </div>
+          </div>
+        </main>
+      </>
+    );
+  };
 
 export default Home;
