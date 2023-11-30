@@ -24,7 +24,6 @@
   animation: gradient-animation 16s ease infinite;
   min-height: 100vh;
   height: auto;
-  min-width: 100vw;
   overflow-x: hidden;
   overflow-y: hidden;
   text-align: center;
@@ -45,15 +44,19 @@
 }
 
 .screen {
-  width: 83%;
+  width: 80%;
   margin: 100px;
 }
 
 .navigation {
   background-color: #0f3436;
+  background: linear-gradient(to bottom, #0f3436, transparent);
   display: flex;
+  justify-content: center;
   flex-direction: column;
-  width:17%;
+  width:20%;
+  font-size: 32px;
+  min-height: 100vh;
 }
 
 .selected {

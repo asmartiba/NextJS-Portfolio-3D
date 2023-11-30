@@ -38,11 +38,26 @@ import React, {useRef, useState, useEffect} from "react"
 
   
   const Home = () => {
-    const [selectedComponent, setSelectedComponent] = useState('Aleph');
-
-    const handleComponentChange = (selectedComponent: string) => {
-      setSelectedComponent(selectedComponent);
+    const [artExpanded, setArtExpanded] = useState(false);
+    const [programmingExpanded, setProgrammingExpanded] = useState(false);
+    const [selectedComponent, setSelectedComponent] = useState('');
+  
+    const handleComponentChange = (component: string) => {
+      if (component === 'art') {
+        setArtExpanded(!artExpanded);
+        setSelectedComponent(artExpanded ? '' : 'art');
+      } else if (component === 'acrylic' || component === 'pencil' || component === 'digital') {
+        setSelectedComponent(component);
+      } else if (component === 'programming') {
+        setProgrammingExpanded(!programmingExpanded);
+        setSelectedComponent(programmingExpanded ? '' : 'programming');
+      } else if (component === 'front-end' || component === 'back-end' || component === 'creative UI') {
+        setSelectedComponent(component);
+      } else {
+        setSelectedComponent(component);
+      }
     };
+    
 
     return (
       <>
@@ -54,20 +69,64 @@ import React, {useRef, useState, useEffect} from "react"
             </div>
             
             <div className={styles.navigation}>
-                <div
-                  className={selectedComponent === 'Aleph' ? styles.selected : ''}
-                  onClick={() => handleComponentChange('Aleph')}
-                >
-                  Aleph
-                </div>
-                <div
-                  className={selectedComponent === 'Bet' ? styles.selected : ''}
-                  onClick={() => handleComponentChange('Bet')}
-                >
-                  Bet
+                  <div
+                    className={selectedComponent === 'art' ? styles.selected : ''}
+                    onClick={() => handleComponentChange('art')}
+                  >
+                    {artExpanded ? '-art' : '+art'}
+                  </div>
+                  {artExpanded && (
+                    <div>
+                      <div
+                        className={selectedComponent === 'acrylic' ? styles.selected : ''}
+                        onClick={() => handleComponentChange('acrylic')}
+                      >
+                        -acrylic
+                      </div>
+                      <div
+                        className={selectedComponent === 'pencil' ? styles.selected : ''}
+                        onClick={() => handleComponentChange('pencil')}
+                      >
+                        -pencil
+                      </div>
+                      <div
+                        className={selectedComponent === 'digital' ? styles.selected : ''}
+                        onClick={() => handleComponentChange('digital')}
+                      >
+                        -digital
+                      </div>
+                    </div>
+                  )}
+                  <div
+                    className={selectedComponent === 'programming' ? styles.selected : ''}
+                    onClick={() => handleComponentChange('programming')}
+                  >
+                    {programmingExpanded ? '-programming' : '+programming'}
+                  </div>
+                  {programmingExpanded && (
+                    <div>
+                      <div
+                        className={selectedComponent === 'front-end' ? styles.selected : ''}
+                        onClick={() => handleComponentChange('Aleph')}
+                      >
+                      Front-end
+                      </div>
+                      <div
+                        className={selectedComponent === 'back-end' ? styles.selected : ''}
+                        onClick={() => handleComponentChange('Bet')}
+                      >
+                       Back-end
+                      </div>
+                      <div
+                        className={selectedComponent === 'creative UI' ? styles.selected : ''}
+                        onClick={() => handleComponentChange('creative UI')}
+                      >
+                        Creative UI
+                      </div>
+                    </div>
+                  )}
                 </div>
             </div>
-          </div>
         </main>
       </>
     );
