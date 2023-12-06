@@ -40,7 +40,7 @@ import React, {useRef, useState, useEffect} from "react"
   const Home = () => {
     const [artExpanded, setArtExpanded] = useState(false);
     const [programmingExpanded, setProgrammingExpanded] = useState(false);
-    const [selectedComponent, setSelectedComponent] = useState('');
+    const [selectedComponent, setSelectedComponent] = useState('Bet');
   
     const handleComponentChange = (component: string) => {
       if (component === 'art') {

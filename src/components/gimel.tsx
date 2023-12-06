@@ -6,13 +6,11 @@ import { GLTF, GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 import styles from './aleph.module.css'
 
- const Bet = () => {
+ const Gimel = () => {
   const modelRef = useRef<THREE.Mesh | null>(null);
   const initialPosition = [-0.2, 0.2, 0];
   const [model, setModel] = useState<THREE.Object3D | null>(null);
   const [isMobile, setIsMobile] = useState(false);
-  const CSharpMixer = useRef<THREE.AnimationMixer | null>(null); 
-  const previousTimeRef = useRef(0);
   
     useEffect(() => {
       const checkIsMobile = () => {
@@ -52,46 +50,19 @@ import styles from './aleph.module.css'
 
     useEffect(() => {
       const loader = new GLTFLoader();
-      const dracoLoader = new DRACOLoader();
-      dracoLoader.setDecoderPath(
-        'https://www.gstatic.com/draco/versioned/decoders/1.5.6/'
-      );
-      loader.setDRACOLoader(dracoLoader);
   
-      loader.load('/models/csharp.glb', (glb) => {
-        if (glb.animations.length > 0) {
-          CSharpMixer.current = new THREE.AnimationMixer(glb.scene);
-          const action = CSharpMixer.current.clipAction(glb.animations[0]);
-          action.play();
+      loader.load(
+        "/models/csharp.glb",
+        (gltf) => {
+          setModel(gltf.scene);
+        },
+        undefined,
+        (error) => {
+          console.error("Error loading GLB model", error);
         }
-  
-        setModel(glb.scene);
-      });
+      );
     }, []);
   
-    const animate = (timestamp: number) => {
-      const deltaTime = (timestamp - previousTimeRef.current) * 0.0004;
-      previousTimeRef.current = timestamp;
-    
-      if (CSharpMixer.current) {
-        // const action = CSharpMixer.current.clipAction();
-        // action.setTime(action.time + deltaTime);
-        CSharpMixer.current.update(deltaTime);
-      }
-    
-      if (modelRef.current) {
-        modelRef.current.rotation.y += deltaTime;
-      }
-    };
-    
-    
-  
-    useEffect(() => {
-      if (model) {
-        requestAnimationFrame(animate);
-      }
-    }, [model]);
-
     return (
         <>
             <div className={styles.flex}>
@@ -151,5 +122,5 @@ import styles from './aleph.module.css'
             </div>
         </>
       )};
-
-export default Bet;
+        
+export default Gimel;
