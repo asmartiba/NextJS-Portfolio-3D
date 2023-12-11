@@ -4,6 +4,7 @@ import styles from './page.module.css'
 import './global.css'
 import Aleph from './../components/aleph'
 import Bet from './../components/bet'
+import Gimel from './../components/gimel'
 import React, {useRef, useState, useEffect} from "react"
 
   const ToggleColorDiv = () => {
@@ -41,6 +42,8 @@ import React, {useRef, useState, useEffect} from "react"
     const [artExpanded, setArtExpanded] = useState(false);
     const [programmingExpanded, setProgrammingExpanded] = useState(false);
     const [selectedComponent, setSelectedComponent] = useState('Bet');
+    const [isSticky, setSticky] = useState(false);
+
   
     const handleComponentChange = (component: string) => {
       if (component === 'art') {
@@ -57,15 +60,16 @@ import React, {useRef, useState, useEffect} from "react"
         setSelectedComponent(component);
       }
     };
-    
+
 
     return (
       <>
-        <main className={styles.mainx}>
+      <main className={styles.mainx}>
           <div className={styles.container}>
             <div className={styles.screen}>
               {selectedComponent === 'Aleph' && <Aleph />}
               {selectedComponent === 'Bet' && <Bet />}
+              {selectedComponent === 'Gimel' && <Gimel />}
             </div>
             
             <div className={styles.navigation}>
