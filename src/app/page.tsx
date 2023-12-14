@@ -11,8 +11,6 @@ import React, {useRef, useState, useEffect} from "react"
     const [artExpanded, setArtExpanded] = useState(false);
     const [programmingExpanded, setProgrammingExpanded] = useState(false);
     const [selectedComponent, setSelectedComponent] = useState('Bet');
-    const [isSticky, setSticky] = useState(false);
-
   
     const handleComponentChange = (component: string) => {
       if (component === 'art') {
@@ -23,20 +21,23 @@ import React, {useRef, useState, useEffect} from "react"
       } else if (component === 'programming') {
         setProgrammingExpanded(!programmingExpanded);
         setSelectedComponent(programmingExpanded ? '' : 'programming');
-      } else if (component === 'front-end' || component === 'back-end' || component === 'creative UI') {
+      } else if (component === 'Aleph') { 
+        setSelectedComponent('front-end');
+      } else if (component === 'Bet') { 
+        setSelectedComponent('back-end');
+      } else if (component === 'creative UI') {
         setSelectedComponent(component);
       } else {
         setSelectedComponent(component);
       }
     };
-
     return (
       <>
       <main className={styles.mainx}>
 
             <div className={styles.screen}>
-              {selectedComponent === 'Aleph' && <Aleph />}
-              {selectedComponent === 'Bet' && <Bet />}
+              {selectedComponent === 'front-end' && <Aleph />}
+              {selectedComponent === 'back-end' && <Bet />}
               {selectedComponent === 'Gimel' && <Gimel />}
             </div>
             

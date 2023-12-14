@@ -42,17 +42,18 @@
 
 .navigation {
   background-color: #0f3436;
-  background: linear-gradient(to bottom, #38857a, transparent, transparent);
+  background: linear-gradient(to bottom, #38857a30, transparent);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 20%;
+  width: 15%;
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
-  overflow-y: auto; 
+  overflow-y: auto;
+  font-size: 32px;
 }
 
 .selected {
