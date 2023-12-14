@@ -74,17 +74,13 @@ import styles from './aleph.module.css'
       previousTimeRef.current = timestamp;
     
       if (CSharpMixer.current) {
-        // const action = CSharpMixer.current.clipAction();
-        // action.setTime(action.time + deltaTime);
         CSharpMixer.current.update(deltaTime);
       }
     
       if (modelRef.current) {
         modelRef.current.rotation.y += deltaTime;
       }
-    };
-    
-    
+    };    
   
     useEffect(() => {
       if (model) {

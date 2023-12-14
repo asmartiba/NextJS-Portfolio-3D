@@ -22,15 +22,12 @@
   color: white;
   background-size: 150%;
   animation: gradient-animation 16s ease infinite;
-  min-height: 100vh;
   height: auto;
   overflow-x: hidden;
   overflow-y: hidden;
   text-align: center;
-  display: flex;  
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display: flex;
+  min-height: 100vh;
   font-family: 'Handjet', cursive;
 }
 
@@ -38,25 +35,24 @@
   color: coral;
 }
 
-.container {
-  width: 100vw;
-  display: flex;
-}
-
 .screen {
   width: 80%;
-  margin: 100px;
+  overflow-y: auto;
 }
 
 .navigation {
   background-color: #0f3436;
-  background: linear-gradient(to bottom, #0f3436, transparent);
+  background: linear-gradient(to bottom, #38857a, transparent, transparent);
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  width:20%;
-  font-size: 32px;
-  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto; 
 }
 
 .selected {
