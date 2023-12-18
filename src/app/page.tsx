@@ -42,6 +42,7 @@ import React, {useRef, useState, useEffect} from "react"
             </div>
             
             <div className={styles.navigation}>
+                <div className={styles.navItem}>
                   <div
                     className={selectedComponent === 'art' ? styles.selected : ''}
                     onClick={() => handleComponentChange('art')}
@@ -98,6 +99,7 @@ import React, {useRef, useState, useEffect} from "react"
                       </div>
                     </div>
                   )}
+                  </div>
                 </div>
         </main>
       </>
