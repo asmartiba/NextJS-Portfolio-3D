@@ -46,7 +46,6 @@
   display: flex;
   flex-direction: column;
   width:17%;
-  font-size: 32px;
   min-height: 100vh;
   height: auto;
   position:static;
@@ -58,9 +57,14 @@
   flex-direction: column;
   justify-content: center;
   align-self: center;
-  text-align: center;
+  text-align: left;
   min-height: 100vh;
+  font-size: 30px;
   position:fixed;
+}
+
+.navGroup {
+  margin-left:24px;
 }
 
 .selected {

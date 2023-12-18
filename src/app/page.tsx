@@ -47,27 +47,27 @@ import React, {useRef, useState, useEffect} from "react"
                     className={selectedComponent === 'art' ? styles.selected : ''}
                     onClick={() => handleComponentChange('art')}
                   >
-                    {artExpanded ? '-art' : '+art'}
+                    {artExpanded ? '- Art' : '+ Art'}
                   </div>
                   {artExpanded && (
-                    <div>
+                    <div className={styles.navGroup}>
                       <div
                         className={selectedComponent === 'acrylic' ? styles.selected : ''}
                         onClick={() => handleComponentChange('acrylic')}
                       >
-                        -acrylic
+                        Acrylic
                       </div>
                       <div
                         className={selectedComponent === 'pencil' ? styles.selected : ''}
                         onClick={() => handleComponentChange('pencil')}
                       >
-                        -pencil
+                        Pencil
                       </div>
                       <div
                         className={selectedComponent === 'digital' ? styles.selected : ''}
                         onClick={() => handleComponentChange('digital')}
                       >
-                        -digital
+                        Digital
                       </div>
                     </div>
                   )}
@@ -75,10 +75,10 @@ import React, {useRef, useState, useEffect} from "react"
                     className={selectedComponent === 'programming' ? styles.selected : ''}
                     onClick={() => handleComponentChange('programming')}
                   >
-                    {programmingExpanded ? '-programming' : '+programming'}
+                    {programmingExpanded ? '- Programming' : '+ Programming'}
                   </div>
                   {programmingExpanded && (
-                    <div>
+                    <div className={styles.navGroup}>
                       <div
                         className={selectedComponent === 'front-end' ? styles.selected : ''}
                         onClick={() => handleComponentChange('Aleph')}
