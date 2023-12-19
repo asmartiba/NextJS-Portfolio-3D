@@ -36,16 +36,16 @@
 }
 
 .screen {
-  width: 83%;
+  width: 87%;
   margin: 100px;
 }
 
 .navigation {
   background-color: #0f3436;
-  background: linear-gradient(to bottom, #38857a30, transparent);
+  background: linear-gradient(to left, #38857a7e,#38857a30, transparent);
   display: flex;
   flex-direction: column;
-  width:17%;
+  width:13%;
   min-height: 100vh;
   height: auto;
   position:static;
