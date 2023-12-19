@@ -42,7 +42,7 @@
 
 .navigation {
   background-color: #0f3436;
-  background: linear-gradient(to left, #38857a7e,#38857a30, transparent);
+  background: linear-gradient(to bottom left, #38857a7e,#38857a30, transparent);
   display: flex;
   flex-direction: column;
   width:13%;
@@ -58,15 +58,30 @@
   justify-content: center;
   align-self: center;
   text-align: left;
-  min-height: 100vh;
+  min-height: 70vh;
   font-size: 30px;
-  position:fixed;
+  position: fixed;
 }
 
 .navGroup {
-  margin-left:24px;
+  margin: 20px;
+  overflow: hidden;
+  transition: max-height 1s ease-in-out, opacity 1s ease-in-out; 
+  position: relative;
+  max-height: 0;
+  opacity: 0; 
+}
+
+.navGroup.open {
+  max-height: 500px;
+  opacity: 1; 
+}
+
+.navGroup.closed {
+  max-height: 0;
+  opacity: 0; 
 }
 
 .selected {
-  color: green;
+  color: cyan;
 }

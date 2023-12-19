@@ -42,65 +42,61 @@ import React, {useRef, useState, useEffect} from "react"
             </div>
             
             <div className={styles.navigation}>
-                <div className={styles.navItem}>
-                  <div
-                    className={selectedComponent === 'art' ? styles.selected : ''}
-                    onClick={() => handleComponentChange('art')}
-                  >
-                    {artExpanded ? '- Art' : '+ Art'}
-                  </div>
-                  {artExpanded && (
-                    <div className={styles.navGroup}>
-                      <div
-                        className={selectedComponent === 'acrylic' ? styles.selected : ''}
-                        onClick={() => handleComponentChange('acrylic')}
-                      >
-                        Acrylic
-                      </div>
-                      <div
-                        className={selectedComponent === 'pencil' ? styles.selected : ''}
-                        onClick={() => handleComponentChange('pencil')}
-                      >
-                        Pencil
-                      </div>
-                      <div
-                        className={selectedComponent === 'digital' ? styles.selected : ''}
-                        onClick={() => handleComponentChange('digital')}
-                      >
-                        Digital
-                      </div>
-                    </div>
-                  )}
-                  <div
-                    className={selectedComponent === 'programming' ? styles.selected : ''}
-                    onClick={() => handleComponentChange('programming')}
-                  >
-                    {programmingExpanded ? '- Programming' : '+ Programming'}
-                  </div>
-                  {programmingExpanded && (
-                    <div className={styles.navGroup}>
-                      <div
-                        className={selectedComponent === 'front-end' ? styles.selected : ''}
-                        onClick={() => handleComponentChange('Aleph')}
-                      >
-                      Front-end
-                      </div>
-                      <div
-                        className={selectedComponent === 'back-end' ? styles.selected : ''}
-                        onClick={() => handleComponentChange('Bet')}
-                      >
-                       Back-end
-                      </div>
-                      <div
-                        className={selectedComponent === 'creative UI' ? styles.selected : ''}
-                        onClick={() => handleComponentChange('creative UI')}
-                      >
-                        Creative UI
-                      </div>
-                    </div>
-                  )}
-                  </div>
-                </div>
+          <div className={styles.navItem}>
+            <div
+              className={selectedComponent === 'art' ? styles.selected : ''}
+              onClick={() => handleComponentChange('art')}
+            >
+              {artExpanded ? '- Art' : '+ Art'}
+            </div>
+            <div className={`${styles.navGroup} ${artExpanded ? `${styles.open}` : `${styles.closed}`}`}>
+              <div
+                className={selectedComponent === 'acrylic' ? styles.selected : ''}
+                onClick={() => handleComponentChange('acrylic')}
+              >
+                Acrylic
+              </div>
+              <div
+                className={selectedComponent === 'pencil' ? styles.selected : ''}
+                onClick={() => handleComponentChange('pencil')}
+              >
+                Pencil
+              </div>
+              <div
+                className={selectedComponent === 'digital' ? styles.selected : ''}
+                onClick={() => handleComponentChange('digital')}
+              >
+                Digital
+              </div>
+            </div>
+            <div
+              className={selectedComponent === 'programming' ? styles.selected : ''}
+              onClick={() => handleComponentChange('programming')}
+            >
+              {programmingExpanded ? '- Programming' : '+ Programming'}
+            </div>
+            <div className={`${styles.navGroup} ${programmingExpanded ? `${styles.open}` : `${styles.closed}`}`}>
+              <div
+                className={selectedComponent === 'front-end' ? styles.selected : ''}
+                onClick={() => handleComponentChange('Aleph')}
+              >
+                Front-end
+              </div>
+              <div
+                className={selectedComponent === 'back-end' ? styles.selected : ''}
+                onClick={() => handleComponentChange('Bet')}
+              >
+                Back-end
+              </div>
+              <div
+                className={selectedComponent === 'creative UI' ? styles.selected : ''}
+                onClick={() => handleComponentChange('creative UI')}
+              >
+                Creative UI
+              </div>
+            </div>
+          </div>
+        </div>
         </main>
       </>
     );
