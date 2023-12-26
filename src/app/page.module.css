@@ -35,9 +35,14 @@
   color: coral;
 }
 
+
+.mainx h3 {
+  color: green;
+  margin: 50px;
+}
+
 .screen {
-  width: 87%;
-  margin: 100px;
+  width: 84%;
 }
 
 .navigation {
@@ -45,7 +50,7 @@
   background: linear-gradient(to bottom left, #38857a7e,#38857a30, transparent);
   display: flex;
   flex-direction: column;
-  width:13%;
+  width:16%;
   min-height: 100vh;
   height: auto;
   position:static;
