@@ -1,9 +1,12 @@
 .container3D {
     height: 75vh;
+    width: 50%;
 }
 
 .containerText {
     font-size: 22px;
+    width: 50%;
+    margin: 100px;
 }
 
 .flex {
@@ -14,5 +17,6 @@
 
 .imageS {
     width: 300px;
+    margin: 100px;
     height: auto;
 }
